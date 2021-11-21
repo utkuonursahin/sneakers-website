@@ -1,13 +1,20 @@
 import iconNext from "../../../images/icon-next.svg"
 import iconPrevious from "../../../images/icon-previous.svg"
 import {useGallery} from "../../../context/GalleryContext";
+import {useEffect, useRef} from "react";
+import Spinner from "../../Spinner/Spinner";
 const GalleryMobile = () => {
-  const {photoNumber, handleTour} = useGallery()
+  const {photoNumber, handleTour, handlePhoto, handleLoad, isPhotoLoaded} = useGallery()
   const photo = require(`../../../images/image-product-${photoNumber}.jpg`).default
+
+  const imageMobileRef = useRef()
+  useEffect(()=>handlePhoto(imageMobileRef,photo),[photo])
+
   return (
       <div className="gallery">
         <div className="gallery__mobile">
-          <img src={photo} alt="Sneakers product" className="gallery__mobile--main-pic"/>
+          {!isPhotoLoaded && <Spinner/>}
+          <img alt="Sneakers product" className="gallery__mobile--main-pic" ref={imageMobileRef} onLoad={handleLoad}/>
           <div className="icon-previous" onClick={handleTour} data-operation={"decrease"}>
             <img src={iconPrevious} alt="Previous icon"/>
           </div>

@@ -4,6 +4,7 @@ const GalleryContext = createContext()
 const GalleryProvider = ({children}) => {
   const [isClicked, setIsClicked] = useState(false)
   const [photoNumber, setPhotoNumber] = useState(1)
+  const [isPhotoLoaded, setIsPhotoLoaded] = useState()
 
   const findPhotoNumber = function (e){
     if(e.target.className !== 'gallery__thumbnail') return
@@ -18,7 +19,14 @@ const GalleryProvider = ({children}) => {
     else if(target === 'icon-next') photoNumber === 4 ? setPhotoNumber(1) : setPhotoNumber(prev => prev + 1)
   }
 
-  const values = {isClicked, photoNumber, setIsClicked, findPhotoNumber, handleTour}
+  const handlePhoto = function(refAddress,photo){
+    setIsPhotoLoaded(false)
+    refAddress.current.src = photo
+  }
+
+  const handleLoad = () => setIsPhotoLoaded(true)
+
+  const values = {isClicked, photoNumber, setIsClicked, isPhotoLoaded, handlePhoto, handleLoad, handleTour, findPhotoNumber}
   return <GalleryContext.Provider value={values}>{children}</GalleryContext.Provider>
 }
 
