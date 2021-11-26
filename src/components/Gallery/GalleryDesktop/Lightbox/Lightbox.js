@@ -7,15 +7,15 @@ import {useEffect, useRef} from "react";
 import Spinner from "../../../Spinner/Spinner";
 
 const Lightbox = () => {
-  const {photoNumber, setIsClicked, handleTour, handlePhoto, handleLoad, isPhotoLoaded} = useGallery()
+  const {photoNumber, setIsClicked, handleTour, handlePhoto, handleLoad, isPhotoLoaded,imgRef} = useGallery()
   const photo = require(`../../../../images/image-product-${photoNumber}.jpg`).default
-  const imageDesktopRef = useRef()
-  useEffect(()=>handlePhoto(imageDesktopRef,photo),[photo])
+
+  useEffect(()=>handlePhoto(photo),[photo])
 
   return (
       <div className="lightbox">
         <img src={iconClose} alt="Close icon" className="icon-close" onClick={() => setIsClicked(false)}/>
-        <img alt="Sneakers product" className="lightbox--main-pic" ref={imageDesktopRef} onLoad={handleLoad}/>
+        <img alt="Sneakers product" className="lightbox--main-pic" ref={imgRef} onLoad={handleLoad}/>
         {!isPhotoLoaded && <Spinner/>}
         <div className="icon-previous" onClick={handleTour} data-operation={"decrease"}>
           <img src={iconPrevious} alt="Previous icon"/>

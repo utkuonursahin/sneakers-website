@@ -14,7 +14,8 @@
   }
   &-nav{
     height: 100%;
-    margin-left: auto;
+    margin-left: 7.5rem;
+    @media only screen and (max-width: abs.$bp-1000){margin-left: 2.5rem}
     @media only screen and (max-width: abs.$bp-750){display: none}
     &__list{
       height: 100%;
