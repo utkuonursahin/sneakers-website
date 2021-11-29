@@ -3,7 +3,7 @@ import iconClose from "../../../../images/icon-close.svg";
 import iconNext from "../../../../images/icon-next.svg"
 import iconPrevious from "../../../../images/icon-previous.svg"
 import {useGallery} from "../../../../context/GalleryContext";
-import {useEffect, useRef} from "react";
+import {useEffect} from "react";
 import Spinner from "../../../Spinner/Spinner";
 
 const Lightbox = () => {

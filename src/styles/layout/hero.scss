@@ -7,6 +7,7 @@
   grid-template-columns: repeat(3,1fr);
   grid-template-rows: repeat(4,min-content);
   grid-row-gap: 3rem;
+  grid-column-gap: 1.5rem;
 
   @media only screen and (max-width: abs.$bp-1300){margin: auto 3rem;}
   @media only screen and (max-width: abs.$bp-1000){
@@ -46,18 +47,24 @@
     align-items: center;
     font-weight: 700;
     &--actual{
+      position: relative;
       grid-row: 1 / 2;
       font-size: 2.5rem;
+      &::after{
+        content: "50%";
+        position: absolute;
+        top: 50%;
+        width: 5rem;
+        margin-left: 1rem;
+        font-size: 2rem;
+        text-align: center;
+        color: abs.$color-primary;
+        background-color: abs.$color-secondary;
+        border-radius: .5rem;
+        transform: translateY(-50%);
+      }
     }
-    &--discount{
-      width: 5rem;
-      text-align: center;
-      font-size: 2rem;
-      grid-row: 1 / 2;
-      background-color: abs.$color-secondary;
-      color: abs.$color-primary;
-      border-radius: .5rem;
-    }
+
     &--deprecated{
       grid-row: 2 / 3;
       font-size: 1.4rem;
@@ -66,16 +73,13 @@
     }
   }
   &__counter{
-    width: 90%;
-
+    width: 100%;
     //Layout
     grid-column: 1 / 2;
     grid-row: 4 / 5;
     display: grid;
     grid-template-columns: min-content 1fr min-content;
-    align-items: center;
-    justify-items: center;
-
+    padding: 1rem;
     //Appearance
     font-size: 2rem;
     font-weight: 700;
@@ -83,15 +87,24 @@
     background-color: abs.$color-blue--gray;
     border-radius: 1.5rem;
 
-    & img{
-      padding: 1rem;
+    &--fig{
+      width: 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+      & img{width: 1.5rem;}
+      &:hover{
+        background-color: abs.$color-secondary;
+        border-radius: 1rem;
+      }
     }
 
     &-count{
       width: 50%;
       font-size: 2rem;
       font-weight: 700;
+      justify-self: center;
       text-align: center;
       border: none;
       background-color: abs.$color-blue--gray;
@@ -100,7 +113,6 @@
 
   &__add-to-cart{
     height: 6rem;
-    width: 100%;
 
     //Layout
     grid-column: 2 / -1;
@@ -111,11 +123,18 @@
     gap: 2rem;
 
     //Appearance
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 700;
-    color: abs.$color-white;
-    background-color: abs.$color-primary;
+    letter-spacing: 1px;
     border-radius: 1.5rem;
     border: none;
+    color: abs.$color-white;
+    background-color: abs.$color-primary;
+    box-shadow: 0 0 1rem .15rem abs.$color-primary;
+    transition: all .125s ease-in-out;
+    &:hover{
+      transform: scale(1.1);
+      box-shadow: 0 0 2rem .15rem abs.$color-primary;
+    }
   }
 }

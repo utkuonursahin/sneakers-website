@@ -23,6 +23,7 @@
     min-width: 8rem;
     border-radius: 2rem;
     @media only screen and (max-width: abs.$bp-1000){width: 6rem;}
+    &:hover{box-shadow: 0 0 0 .5rem abs.$color-primary;}
   }
   &--main-pic{
     width: 100%;
@@ -30,6 +31,7 @@
     border-radius: 2rem;
     @media only screen and (max-width: abs.$bp-1000){width: 50%;height: 70%;}
     @media only screen and (max-width: abs.$bp-750){margin-top: 2rem}
+    &:hover{box-shadow: 0 0 0 .25rem abs.$color-primary;}
   }
   &__mobile{
     width: 100%;

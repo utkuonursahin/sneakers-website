@@ -7,7 +7,7 @@ const GalleryProvider = ({children}) => {
   const [isPhotoLoaded, setIsPhotoLoaded] = useState()
   const imgRef = useRef()
 
-  const findPhotoNumber = function (e){
+  const determinePhoto = function (e){
     if(e.target.className !== 'gallery__thumbnail') return
     setIsClicked(true)
     const target = e.target.dataset.image
@@ -27,7 +27,7 @@ const GalleryProvider = ({children}) => {
 
   const handleLoad = () => setIsPhotoLoaded(true)
 
-  const values = {isClicked, photoNumber, setIsClicked, isPhotoLoaded, imgRef, handlePhoto, handleLoad, handleTour, findPhotoNumber}
+  const values = {isClicked, photoNumber, setIsClicked, isPhotoLoaded, imgRef, handlePhoto, handleLoad, handleTour, determinePhoto}
   return <GalleryContext.Provider value={values}>{children}</GalleryContext.Provider>
 }
 

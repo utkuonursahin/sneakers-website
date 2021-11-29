@@ -16,7 +16,6 @@ const Hero = () => {
         </p>
         <div className="hero__prices">
           <span className="hero__prices--actual">${price}.00</span>
-          <span className="hero__prices--discount">50%</span>
           <span className="hero__prices--deprecated">$250.00</span>
         </div>
         <Counter/>

@@ -5,9 +5,13 @@ const Counter = () => {
   const {count,setCount,handleCount} = useBasket()
   return (
       <div className="hero__counter">
-        <img src={iconMinus} alt="Icon-minus" onClick={handleCount}/>
+        <figure className="hero__counter--fig" onClick={handleCount} data-operation="minus">
+          <img src={iconMinus} alt="icon-minus"/>
+        </figure>
         <input value={count} type="number" className="hero__counter-count" onChange={e => setCount(e.target.value)}/>
-        <img src={iconPlus} alt="Icon-plus" onClick={handleCount}/>
+        <figure className="hero__counter--fig" onClick={handleCount} data-operation="plus">
+          <img src={iconPlus} alt="icon-plus"/>
+        </figure>
       </div>
   );
 };

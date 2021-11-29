@@ -5,10 +5,10 @@ import fourthThumbnail from "../../../../images/image-product-4-thumbnail.jpg";
 import {useGallery} from "../../../../context/GalleryContext";
 
 const MiniGallery = () => {
-  const {findPhotoNumber} = useGallery()
+  const {determinePhoto} = useGallery()
 
   return (
-      <div className="gallery__thumbnails" onClick={findPhotoNumber}>
+      <div className="gallery__thumbnails" onClick={determinePhoto}>
         <img src={firstThumbnail} alt="Thumbnail" data-image={1} className="gallery__thumbnail"/>
         <img src={secondThumbnail} alt="Thumbnail" data-image={2} className="gallery__thumbnail"/>
         <img src={thirdThumbnail} alt="Thumbnail" data-image={3} className="gallery__thumbnail"/>
