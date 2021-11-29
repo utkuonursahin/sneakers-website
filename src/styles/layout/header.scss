@@ -1,11 +1,12 @@
 @use "../abstracts" as abs;
 .header{
+  position: relative;
   grid-column: 1 / -1;
   width: 100%;
   display: flex;
   align-items: center;
   border-bottom: .15rem solid abs.$color-blue--grayish;
-  @media only screen and (max-width: abs.$bp-750){padding: 0 2rem}
+  @media only screen and (max-width: abs.$bp-750){padding: 0 2rem; position: static}
   @media only screen and (max-width: abs.$bp-350){padding: 0 1rem}
   &-logo{
     width: 20rem;
@@ -24,16 +25,27 @@
       list-style: none;
       @media only screen and (max-width: abs.$bp-1000){gap: 1rem;}
       &--item{
+        position: relative;
+        cursor: pointer;
         height: 100%;
         font-size: 2rem;
         display: flex;
         align-items: center;
         color: abs.$color-blue--dark;
         @media only screen and (max-width: abs.$bp-1000){font-size: 1.6rem}
-        &:hover{
-          cursor: pointer;
-          border-bottom: .25rem solid abs.$color-primary
+        &:after{
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          width: 0;
+          height: 3px;
+          background-color: abs.$color-primary;
+          transform: translateX(-50%);
+          transition: width .25s ease-in-out;
         }
+
+        &:hover::after{width: 100%;}
       }
     }
   }

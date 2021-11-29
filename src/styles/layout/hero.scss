@@ -86,6 +86,7 @@
     color: abs.$color-black;
     background-color: abs.$color-blue--gray;
     border-radius: 1.5rem;
+    @media only screen and (max-width: abs.$bp-750){padding: 0;}
 
     &--fig{
       width: 3rem;
@@ -113,7 +114,6 @@
 
   &__add-to-cart{
     height: 6rem;
-
     //Layout
     grid-column: 2 / -1;
     grid-row: 4 / 5;
@@ -130,10 +130,9 @@
     border: none;
     color: abs.$color-white;
     background-color: abs.$color-primary;
-    box-shadow: 0 0 1rem .15rem abs.$color-primary;
     transition: all .125s ease-in-out;
     &:hover{
-      transform: scale(1.1);
+      transform: scale(1.05);
       box-shadow: 0 0 2rem .15rem abs.$color-primary;
     }
   }
