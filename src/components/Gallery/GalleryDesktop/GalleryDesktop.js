@@ -8,7 +8,9 @@ const GalleryDesktop = () => {
   return (
       <>
         <div className="gallery">
-          <img src={mainPic} alt="Product" className="gallery--main-pic"/>
+          <picture className="gallery--picture">
+            <img src={mainPic} alt="Product"/>
+          </picture>
           <MiniGallery/>
         </div>
         {isClicked && <Lightbox/>}
