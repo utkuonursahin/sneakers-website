@@ -9,7 +9,7 @@ const GalleryDesktop = () => {
       <>
         <div className="gallery">
           <picture className="gallery--picture">
-            <img src={mainPic} alt="Product"/>
+            <img src={mainPic} alt="product" onClick={() => setIsClicked(true)}/>
           </picture>
           <MiniGallery/>
         </div>
