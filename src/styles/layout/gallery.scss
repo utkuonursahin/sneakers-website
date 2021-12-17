@@ -9,7 +9,6 @@
   @media only screen and (max-width: abs.$bp-1000){
     grid-column: 1 / -1;
     grid-row: 2 / 3;
-    gap: 2rem;
   }
   @media only screen and (max-width: abs.$bp-750){padding: 0;}
   &__thumbnails{
@@ -17,12 +16,11 @@
     display: flex;
     justify-content: center;
     gap: 2rem;
-    @media only screen and (max-width: abs.$bp-1000){gap: 1rem;}
   }
   &__thumbnail{
     width: 8rem;
     border-radius: 2rem;
-    @media only screen and (max-width: abs.$bp-1000){width: 7rem;}
+    @media only screen and (max-width: abs.$bp-1000){width: 10rem;}
     &:hover{box-shadow: 0 0 0 .5rem abs.$color-primary;}
   }
   &--picture{
