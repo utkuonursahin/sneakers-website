@@ -13,20 +13,22 @@ const Lightbox = () => {
   useEffect(()=>handlePhoto(photo),[photo])
 
   return (
-      <div className="lightbox">
-        <img src={iconClose} alt="Close icon" className="icon-close" onClick={() => setIsClicked(false)}/>
-        <img alt="Sneakers product" className="lightbox--main-pic" ref={imgRef} onLoad={handleLoad}/>
-        {!isPhotoLoaded && <Spinner/>}
-        <div className="icon-previous" onClick={handleTour} data-operation={"decrease"}>
-          <img src={iconPrevious} alt="Previous icon"/>
-        </div>
+      <>
+        <div className="lightbox">
+          <img src={iconClose} alt="Close icon" className="icon-close" onClick={() => setIsClicked(false)}/>
+          <img alt="Sneakers product" className="lightbox--main-pic" ref={imgRef} onLoad={handleLoad}/>
+          {!isPhotoLoaded && <Spinner/>}
+          <picture className="icon-previous" onClick={handleTour} data-operation={"decrease"}>
+            <img src={iconPrevious} alt="Previous icon"/>
+          </picture>
+          <picture className="icon-next" onClick={handleTour} data-operation={"increase"}>
+            <img src={iconNext} alt="Next icon"/>
+          </picture>
 
-        <div className="icon-next" onClick={handleTour} data-operation={"increase"}>
-          <img src={iconNext} alt="Next icon"/>
+          <MiniGallery/>
         </div>
-
-        <MiniGallery/>
-      </div>
+        <div className="overlay" onClick={() => setIsClicked(false)}/>
+      </>
   );
 };
 

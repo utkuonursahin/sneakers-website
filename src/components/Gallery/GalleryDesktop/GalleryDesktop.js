@@ -14,7 +14,6 @@ const GalleryDesktop = () => {
           <MiniGallery/>
         </div>
         {isClicked && <Lightbox/>}
-        {isClicked && <div className="overlay" onClick={() => setIsClicked(false)}/>}
       </>
   );
 };
